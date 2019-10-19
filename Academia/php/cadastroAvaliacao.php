@@ -2,7 +2,7 @@
     session_start();
     include_once("../php/conexao.php");
 
-    $nome = $_SESSION['login'];    
+    $nome = $_SESSION['nome'];    
     if(!isset($_SESSION['login'])){
     header("Location:../index.php?erro=1");
     }

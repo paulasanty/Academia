@@ -5,6 +5,9 @@
         <p></p>
     </div>
     <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="../php/menu2.php">Home</a>
+                </li>
     <li class="active">
                     <a href="#pageGerencial" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Gerencial</a>
                     <ul class="collapse list-unstyled" id="pageGerencial">

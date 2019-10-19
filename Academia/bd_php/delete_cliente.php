@@ -12,7 +12,7 @@
         $_SESSION['msg'] = "<p style='color:MediumSeaGreen;'>".'Exclusão do cadastro efetuado com sucesso de sucesso!'."</p>";
         header("Location:../php/consultaCliente.php");
     }else{
-        $_SESSION['msg'] = "<p style='color:Tomato;'>".'Não foi possível excluir o cadastro do cliente, existe férias vinculado a esse cadastrado!'."</p>";
+        $_SESSION['msg'] = "<p style='color:Tomato;'>".'Não foi possível excluir o cadastro do cliente, o cadastro está completo, por favor edita-lo!'."</p>";
      header("Location:../php/consultaCliente.php");
     }
 ?>
