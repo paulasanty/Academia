@@ -6,9 +6,21 @@ $matricula  = $_POST['matricula'];
 $dtinicio   = $_POST['dtinicio'];
 $qtdDias    = ($_POST['qtdDias']);
 
-$resultSelect = mysqli_query($conexao, "SELECT sum(qtd_dias) as qtd FROM tb_ferias WHERE matricula = '$matricula' group by matricula ");
+$resultSelect = mysqli_query($conexao, "SELECT c.matricula FROM tb_cliente c 
+											where c.tp_plano = 1 
+											and  c.matricula = '$matricula'");
+$array_ferias = [];
 
-$row = mysqli_fetch_assoc($resultSelect);
+while ($cliente = mysqli_fetch_assoc($resultSelect)) {
+	$func_exist = $cliente['matricula'];
+	array_push($array_ferias, $func_exist);
+}
+
+if (in_array($matricula, $array_ferias)) {
+
+$querySelect = mysqli_query($conexao, "SELECT sum(qtd_dias) as qtd FROM tb_ferias WHERE matricula = '$matricula' group by matricula ");
+
+$row = mysqli_fetch_assoc($querySelect);
 $soma = $row['qtd'] + $qtdDias;
  
 	if($soma > '30'){
@@ -31,5 +43,9 @@ $soma = $row['qtd'] + $qtdDias;
 			 header("Location:../php/cadastroFerias.php");
 			}
 		}
+}else{
+		$_SESSION['msg'] = "<p style='color:Tomato;'>".'Férias não foi cadastrada, cliente tem plano mensal!'."</p>";
+			 header("Location:../php/cadastroFerias.php");
+			}
 		mysqli_close($conexao)
 	?>
