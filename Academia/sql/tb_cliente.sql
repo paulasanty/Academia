@@ -1,0 +1,23 @@
+CREATE TABLE `tb_cliente` (
+  `matricula` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) DEFAULT NULL,
+  `cpf` varchar(15) DEFAULT NULL,
+  `rg` varchar(14) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `logradouro` varchar(255) DEFAULT NULL,
+  `bairro` varchar(255) DEFAULT NULL,
+  `cidade` varchar(255) DEFAULT NULL,
+  `estado` varchar(255) DEFAULT NULL,
+  `tp_aula` int(11) DEFAULT NULL,
+  `dat_ini_contr` date DEFAULT NULL,
+  `dat_fim_contr` date DEFAULT NULL,
+  `form_pgto` int(11) DEFAULT NULL,
+  `valor` decimal(10,2) DEFAULT NULL,
+  `tp_plano` varchar(20) DEFAULT NULL,
+  `qtd_parcelas` int(2) DEFAULT NULL,
+  PRIMARY KEY (`matricula`),
+  KEY `fk_tpAula` (`tp_aula`),
+  KEY `fk_fpgto` (`form_pgto`),
+  CONSTRAINT `fk_fpgto` FOREIGN KEY (`form_pgto`) REFERENCES `tb_form_pgto` (`Id_form_pgto`),
+  CONSTRAINT `fk_tpAula` FOREIGN KEY (`tp_aula`) REFERENCES `tb_aula` (`Id_aula`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;

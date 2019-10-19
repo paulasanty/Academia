@@ -1,0 +1,23 @@
+CREATE TABLE `tb_avaliacao` (
+  `Id_avaliacao` int(11) NOT NULL AUTO_INCREMENT,
+  `matricula` int(11) NOT NULL DEFAULT 0,
+  `dat_avaliacao` date DEFAULT NULL,
+  `nome_fisio` varchar(50) NOT NULL DEFAULT '',
+  `pamedia` varchar(40) NOT NULL DEFAULT '',
+  `iliaca` varchar(10) NOT NULL DEFAULT '',
+  `abdominal` varchar(10) NOT NULL DEFAULT '',
+  `axilar` varchar(10) NOT NULL DEFAULT '',
+  `biceps` varchar(10) NOT NULL DEFAULT '',
+  `peitoral` varchar(10) NOT NULL DEFAULT '',
+  `subescapular` varchar(10) NOT NULL DEFAULT '',
+  `estagio` varchar(10) NOT NULL DEFAULT '',
+  `tempo` varchar(10) NOT NULL DEFAULT '',
+  `fc` varchar(10) NOT NULL DEFAULT '',
+  `produto` varchar(10) NOT NULL DEFAULT '',
+  `pd` varchar(10) NOT NULL DEFAULT '',
+  `ps` varchar(10) NOT NULL DEFAULT '',
+  `mv` varchar(10) NOT NULL DEFAULT '',
+  `triceps` varchar(10) NOT NULL DEFAULT '',
+  `anamnese` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`Id_avaliacao`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
